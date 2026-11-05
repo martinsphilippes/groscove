@@ -1,61 +1,48 @@
-import { useId } from "react";
+import { BRAND_ORANGE, LOGO_A_PATH, LOGO_GROSCOVE_PATH, LOGO_ULTR_PATH, LOGO_VIEWBOX } from "./brand-paths";
 
-export const BRAND_NAME = "GROSCOVE ULTRA";
+export const BRAND_NAME = "Groscove Ultra";
 
-/**
- * Logo GROSCOVE ULTRA (branco) + triângulo laranja.
- * O reflexo é um único retângulo que atravessa o logo inteiro (texto e triângulo),
- * recortado pelo desenho do logo. Em "reduzir movimento" o reflexo não aparece.
- *
- * TODO(ultra-hero): trocar o <text> pelos caminhos de `brand-paths.ts` do Ultra-hero
- * para ficar idêntico ao desenho original.
- */
-export function LaunchLogo({ className }: { className?: string }) {
-  const id = useId().replace(/:/g, "");
-  const clip = `logo-clip-${id}`;
-  const grad = `logo-shine-${id}`;
+/** Nome sempre em branco nítido, triângulo no laranja oficial (cores fixas no SVG). */
+const LETTERS_FILL = "#f2efea";
 
-  const shapes = (
+function LogoShapes({ letters, mark }: { letters: string; mark: string }) {
+  return (
     <>
-      <text x="0" y="52" className="launch-logo__word" textLength="430" lengthAdjust="spacingAndGlyphs">
-        GROSCOVE
-      </text>
-      <text x="0" y="104" className="launch-logo__word launch-logo__word--ultra" textLength="250" lengthAdjust="spacingAndGlyphs">
-        ULTRA
-      </text>
-      <polygon points="270,104 330,104 300,62" />
+      <path d={LOGO_GROSCOVE_PATH} fill={letters} />
+      <path d={LOGO_ULTR_PATH} fill={letters} />
+      <path d={LOGO_A_PATH} fill={mark} />
     </>
   );
+}
 
+/**
+ * Logo oficial (desenho de brand-paths.ts, copiado do Ultra-hero).
+ * Brilho: duas cópias decorativas empilhadas sobre o logo e mascaradas pela MESMA faixa
+ * inclinada (teaser.css), então a luz atravessa GROSCOVE, ULTR e o triângulo juntos:
+ * - halo (atrás): cópia desfocada, faz o clarão suave em volta das formas;
+ * - reflexo (na frente): letras em branco e triângulo em laranja claro.
+ * As cópias só aparecem sem "reduzir movimento". Leitor de tela lê uma imagem só.
+ */
+export function LaunchLogo({ className, shine = true }: { className?: string; shine?: boolean }) {
   return (
-    <svg viewBox="0 0 440 112" className={["launch-logo", className].filter(Boolean).join(" ")} role="img" aria-label={BRAND_NAME}>
-      <defs>
-        <clipPath id={clip}>{shapes}</clipPath>
-        <linearGradient id={grad} x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0" stopColor="#fff" stopOpacity="0" />
-          <stop offset="0.5" stopColor="#fff" stopOpacity="0.95" />
-          <stop offset="1" stopColor="#fff" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      <g className="launch-logo__base">
-        <text x="0" y="52" className="launch-logo__word" fill="#fff" textLength="430" lengthAdjust="spacingAndGlyphs">
-          GROSCOVE
-        </text>
-        <text
-          x="0"
-          y="104"
-          className="launch-logo__word launch-logo__word--ultra"
-          fill="#fff"
-          textLength="250"
-          lengthAdjust="spacingAndGlyphs"
-        >
-          ULTRA
-        </text>
-        <polygon points="270,104 330,104 300,62" fill="var(--brand-orange)" />
-      </g>
-      <g clipPath={`url(#${clip})`} aria-hidden="true">
-        <rect className="launch-logo__shine" x="-160" y="-20" width="140" height="160" fill={`url(#${grad})`} />
-      </g>
-    </svg>
+    <span className={["launch-logo", className].filter(Boolean).join(" ")}>
+      {shine && (
+        <span aria-hidden="true" className="launch-logo__shine launch-logo__shine--halo">
+          <svg viewBox={LOGO_VIEWBOX} focusable="false">
+            <LogoShapes letters="#ffe2d2" mark="#ff7a3d" />
+          </svg>
+        </span>
+      )}
+      <svg viewBox={LOGO_VIEWBOX} role="img" aria-label={BRAND_NAME} className="launch-logo__svg">
+        <LogoShapes letters={LETTERS_FILL} mark={BRAND_ORANGE} />
+      </svg>
+      {shine && (
+        <span aria-hidden="true" className="launch-logo__shine launch-logo__shine--gloss">
+          <svg viewBox={LOGO_VIEWBOX} focusable="false">
+            <LogoShapes letters="#fff6ef" mark="#ffb994" />
+          </svg>
+        </span>
+      )}
+    </span>
   );
 }

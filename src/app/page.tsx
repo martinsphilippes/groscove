@@ -14,8 +14,8 @@ export default async function HomePage({ searchParams }: Props) {
   return (
     <TeaserShell topAction="influencer">
       <LaunchLogo className="teaser__logo" />
-      <h1 className="teaser__headline shine-text">{t("headline")}</h1>
       <p className="teaser__launch">{t("launch")}</p>
+      <h1 className="teaser__headline shine-text">{t("headline")}</h1>
       <Countdown targetIso={getLaunchAt().toISOString()} initialNow={Date.now()} />
       <LeadForm kind="public" utm={utm} />
     </TeaserShell>

@@ -14,8 +14,7 @@
   gap: 12px;
   padding: 20px clamp(16px, 4vw, 40px);
 }
-.teaser__mini-logo { width: 112px; height: auto; }
-.teaser__mini-logo .launch-logo__shine { display: none; }
+.teaser__mini-logo { width: 120px; }
 .teaser__top-actions { display: flex; align-items: center; gap: 10px; }
 
 .teaser__pill {
@@ -59,7 +58,7 @@
   text-align: center;
 }
 
-.teaser__logo { width: min(360px, 80vw); height: auto; margin: 24px 0 32px; }
+.teaser__logo { width: min(420px, 82vw); margin: 24px 0 36px; }
 
 .teaser__headline {
   font-size: clamp(28px, 6vw, 48px);
@@ -68,10 +67,12 @@
   letter-spacing: -0.02em;
   max-width: 18ch;
 }
-.teaser__headline--influencer { max-width: 20ch; margin-top: 24px; }
+.teaser__headline--influencer { max-width: 20ch; }
+.teaser__launch--eyebrow { margin-top: 24px; }
+.teaser__topics-title { margin-top: 32px; font: 500 12px var(--font-mono); letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
 
 .teaser__launch {
-  margin-top: 20px;
+  margin-bottom: 16px;
   font: 500 13px var(--font-mono);
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -79,7 +80,7 @@
 }
 
 .teaser__topics {
-  margin: 28px 0 32px;
+  margin: 14px 0 32px;
   display: grid;
   gap: 12px;
   color: var(--muted);
@@ -90,27 +91,39 @@
 
 .teaser__footer {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 6px 10px;
+  white-space: nowrap;
   padding: 24px 16px 32px;
   font-size: 13px;
   color: var(--muted);
 }
 .teaser__footer a:hover { color: var(--fg); }
 
-/* Logo: reflexo atravessando texto + triângulo, com clarão suave. */
-.launch-logo { overflow: visible; }
-.launch-logo__word { font-family: var(--font-sans); font-weight: 800; font-size: 56px; }
-.launch-logo__base { filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0)); animation: logo-glow 5s ease-in-out infinite; }
-.launch-logo__shine { animation: logo-shine 5s ease-in-out infinite; }
+/* Logo: faixa de luz inclinada atravessa a marca inteira (mesma máscara no halo e no reflexo). */
+.launch-logo { position: relative; display: inline-block; line-height: 0; }
+.launch-logo svg { display: block; width: 100%; height: auto; }
+.launch-logo__svg { position: relative; z-index: 1; }
+.launch-logo__shine { display: none; position: absolute; inset: 0; pointer-events: none; }
+.launch-logo__shine--halo { z-index: 0; filter: blur(10px); opacity: 0.85; }
+.launch-logo__shine--gloss { z-index: 2; }
 
-@keyframes logo-shine {
-  0%, 35% { transform: translateX(0); }
-  75%, 100% { transform: translateX(760px); }
+@media (prefers-reduced-motion: no-preference) and (forced-colors: none) {
+  .launch-logo__shine {
+    display: block;
+    -webkit-mask-image: linear-gradient(105deg, transparent 40%, #000 50%, transparent 60%);
+    mask-image: linear-gradient(105deg, transparent 40%, #000 50%, transparent 60%);
+    -webkit-mask-size: 300% 100%;
+    mask-size: 300% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    animation: logo-shine 5s ease-in-out infinite;
+  }
 }
-@keyframes logo-glow {
-  0%, 40%, 100% { filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0)); }
-  58% { filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.35)); }
+@keyframes logo-shine {
+  0%, 30% { -webkit-mask-position: 100% 0; mask-position: 100% 0; }
+  75%, 100% { -webkit-mask-position: 0% 0; mask-position: 0% 0; }
 }
 
 /* Mesmo reflexo no título. */
@@ -214,12 +227,17 @@
 .legal { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; line-height: 1.6; }
 .legal h1 { font-size: 32px; font-weight: 800; margin: 16px 0 24px; }
 .legal__back { color: var(--muted); font-size: 14px; }
-.legal__pending { color: var(--muted); }
+
 .legal--center { min-height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 8px; }
 
 @media (prefers-reduced-motion: reduce) {
-  .launch-logo__shine { display: none; }
-  .launch-logo__base,
   .shine-text,
   .flip-digit { animation: none; }
 }
+
+.legal h2 { font-size: 18px; font-weight: 700; margin: 28px 0 8px; }
+.legal p, .legal li { color: rgba(255, 255, 255, 0.8); }
+.legal ul { list-style: disc; padding-left: 20px; display: grid; gap: 6px; }
+.legal a:not(.legal__back) { color: var(--brand-orange); text-decoration: underline; }
+.legal__updated { font: 500 12px var(--font-mono); color: var(--muted); }
+mark.legal__pending { background: rgba(253, 79, 5, 0.25); color: var(--fg); padding: 0 4px; border-radius: 4px; }

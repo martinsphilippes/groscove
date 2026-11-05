@@ -22,8 +22,7 @@ npm run typecheck && npm run lint && npm test && npm run build
 ```
 
 ## Pendências antes de publicar
-- [ ] Copiar do Ultra-hero o texto de Termos e Privacidade (`src/components/LegalPage.tsx`).
-- [ ] Trocar o logo em texto pelos caminhos de `brand-paths.ts` (`src/components/LaunchLogo.tsx`).
-- [ ] Conferir textos en/es e os três tópicos do influenciador com os originais (`messages/*.json`).
-- [ ] Copiar `supabase/groscove_join_launch_list.sql` para as migrações do Ultra-hero (já está aplicado no banco).
+- [ ] Preencher `src/lib/legal-entity.ts` (empresa, CNPJ, endereço, e-mail, DPO) — usados em Termos e Privacidade.
+- [ ] Banco próprio do groscove (Supabase `groscove`) com a tabela de interessados; trocar as variáveis.
+- [ ] Remover a função `groscove_join_launch_list` do banco do Ultra-hero (não será usada).
 - [ ] Projeto Vercel `groscove` ligado a este repositório, com as variáveis.

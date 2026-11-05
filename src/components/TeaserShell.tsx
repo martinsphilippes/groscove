@@ -10,7 +10,7 @@ export async function TeaserShell({ children, topAction }: { children: React.Rea
     <div className="teaser">
       <header className="teaser__top">
         <Link href="/" className="teaser__home" aria-label="Groscove Ultra">
-          <LaunchLogo className="teaser__mini-logo" />
+          <LaunchLogo className="teaser__mini-logo" shine={false} />
         </Link>
         <div className="teaser__top-actions">
           <LocaleSwitcher />
@@ -19,7 +19,7 @@ export async function TeaserShell({ children, topAction }: { children: React.Rea
               {t("teaser.influencerCta")} <span aria-hidden="true">↗</span>
             </Link>
           ) : (
-            <Link href="/" className="teaser__pill">
+            <Link href="/" className="teaser__pill" aria-label={t("influencer.backLabel")}>
               <span aria-hidden="true">←</span> {t("influencer.back")}
             </Link>
           )}
@@ -27,6 +27,8 @@ export async function TeaserShell({ children, topAction }: { children: React.Rea
       </header>
       <main className="teaser__main">{children}</main>
       <footer className="teaser__footer">
+        <span>{t("footer.rights", { year: new Date().getFullYear() })}</span>
+        <span aria-hidden="true">·</span>
         <Link href="/termos">{t("footer.terms")}</Link>
         <span aria-hidden="true">·</span>
         <Link href="/privacidade">{t("footer.privacy")}</Link>

@@ -10,7 +10,9 @@ export default async function InfluencerPage({ searchParams }: Props) {
   const utm = pickUtm(await searchParams);
   return (
     <TeaserShell topAction="back">
+      <p className="teaser__launch teaser__launch--eyebrow">{t("eyebrow")}</p>
       <h1 className="teaser__headline teaser__headline--influencer shine-text">{t("headline")}</h1>
+      <h2 className="teaser__topics-title">{t("benefitsTitle")}</h2>
       <ul className="teaser__topics">
         <li>{t("topic1")}</li>
         <li>{t("topic2")}</li>

@@ -3,19 +3,30 @@
     "title": "Groscove Ultra — Em breve",
     "description": "Algo novo está chegando. Seja o primeiro a saber."
   },
-  "locale": { "label": "Idioma" },
+  "locale": {
+    "label": "Idioma"
+  },
   "teaser": {
     "headline": "A rede wellness das celebridades está chegando.",
     "launch": "Lançamento · 01.01.2027",
     "influencerCta": "Sou influenciador",
-    "countdown": { "label": "Contagem regressiva para o lançamento", "days": "Dias", "hours": "Horas", "minutes": "Min", "seconds": "Seg" }
+    "countdown": {
+      "label": "Contagem para o lançamento",
+      "days": "Dias",
+      "hours": "Horas",
+      "minutes": "Min",
+      "seconds": "Seg"
+    }
   },
   "influencer": {
+    "eyebrow": "Para influenciadores",
     "headline": "Um ecossistema inteiro que conecta você a marcas e empresas.",
-    "topic1": "Campanhas com marcas que combinam com você.",
-    "topic2": "Propostas, contratos e pagamentos num só lugar.",
-    "topic3": "Seu alcance medido e valorizado.",
-    "back": "Voltar"
+    "benefitsTitle": "O que vem aí",
+    "topic1": "Marcas que combinam com o seu estilo.",
+    "topic2": "Trabalhos, agenda e ganhos num só lugar.",
+    "topic3": "Sua página, com a força de uma rede inteira.",
+    "back": "Voltar",
+    "backLabel": "Voltar ao início"
   },
   "form": {
     "title": "Seja o primeiro a saber",
@@ -39,7 +50,18 @@
       "unavailable": "Não foi possível enviar agora. Tente de novo em instantes."
     }
   },
-  "footer": { "terms": "Termos de Uso", "privacy": "Política de Privacidade" },
-  "legal": { "back": "Voltar", "termsTitle": "Termos de Uso", "privacyTitle": "Política de Privacidade" },
-  "notFound": { "title": "Página não encontrada", "back": "Ir para o início" }
+  "footer": {
+    "terms": "Termos de Uso",
+    "privacy": "Política de Privacidade",
+    "rights": "© {year} Groscove Ultra"
+  },
+  "legal": {
+    "back": "Voltar",
+    "termsTitle": "Termos de Uso",
+    "privacyTitle": "Política de Privacidade"
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "back": "Ir para o início"
+  }
 }

@@ -3,19 +3,30 @@
     "title": "Groscove Ultra — Coming soon",
     "description": "Something new is coming. Be the first to know."
   },
-  "locale": { "label": "Language" },
+  "locale": {
+    "label": "Language"
+  },
   "teaser": {
-    "headline": "The celebrity wellness network is coming.",
+    "headline": "The celebrities' wellness network is coming.",
     "launch": "Launch · 01.01.2027",
     "influencerCta": "I'm an influencer",
-    "countdown": { "label": "Countdown to launch", "days": "Days", "hours": "Hours", "minutes": "Min", "seconds": "Sec" }
+    "countdown": {
+      "label": "Countdown to launch",
+      "days": "Days",
+      "hours": "Hours",
+      "minutes": "Min",
+      "seconds": "Sec"
+    }
   },
   "influencer": {
+    "eyebrow": "For influencers",
     "headline": "A whole ecosystem connecting you to brands and companies.",
-    "topic1": "Campaigns with brands that match who you are.",
-    "topic2": "Proposals, contracts and payments in one place.",
-    "topic3": "Your reach, measured and valued.",
-    "back": "Back"
+    "benefitsTitle": "What's coming",
+    "topic1": "Brands that match your style.",
+    "topic2": "Jobs, schedule and earnings in one place.",
+    "topic3": "Your own page, powered by an entire network.",
+    "back": "Back",
+    "backLabel": "Back to home"
   },
   "form": {
     "title": "Be the first to know",
@@ -39,7 +50,18 @@
       "unavailable": "We couldn't send it right now. Please try again shortly."
     }
   },
-  "footer": { "terms": "Terms of Use", "privacy": "Privacy Policy" },
-  "legal": { "back": "Back", "termsTitle": "Terms of Use", "privacyTitle": "Privacy Policy" },
-  "notFound": { "title": "Page not found", "back": "Go to home" }
+  "footer": {
+    "terms": "Terms of Use",
+    "privacy": "Privacy Policy",
+    "rights": "© {year} Groscove Ultra"
+  },
+  "legal": {
+    "back": "Back",
+    "termsTitle": "Terms of Use",
+    "privacyTitle": "Privacy Policy"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "back": "Go to home"
+  }
 }
