@@ -30,8 +30,11 @@ export async function joinLaunchListAction(_prev: LeadFormState, form: FormData)
     return { status: "error", fieldErrors };
   }
 
-  const result = await submitLead({ ...parsed.data, source: "groscove" }, clientIpFrom(await headers()));
+  const h = await headers();
+  const result = await submitLead(
+    { ...parsed.data, source: "groscove" },
+    { clientIp: clientIpFrom(h), userAgent: h.get("user-agent") },
+  );
   if (result.ok) return { status: "success" };
-  if (result.fieldErrors) return { status: "error", fieldErrors: result.fieldErrors };
   return { status: "error", error: result.error === "rate_limited" ? "rate_limited" : "unavailable" };
 }

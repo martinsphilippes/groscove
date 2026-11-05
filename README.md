@@ -5,12 +5,14 @@ Só existem `/`, `/influenciador`, `/termos` e `/privacidade`; qualquer outro ca
 (`src/middleware.ts` + `src/lib/routes.ts`).
 
 ## Como o formulário grava
-O groscove **não tem chave do banco**. A server action (`src/app/actions.ts`) valida, e o servidor envia
-o cadastro assinado (HMAC-SHA256) para `LEADS_ENDPOINT` no Ultra-hero, que grava em `launch_leads`.
-Detalhes e código da rota do app: `docs/ultra-hero-rota-launch-leads.md`.
+O cadastro vai direto para a tabela `public.launch_leads` (Supabase do Ultra-hero), a mesma do
+**Admin › Interessados**, pela função `groscove_join_launch_list` (`supabase/groscove_join_launch_list.sql`).
+O groscove usa só a **chave pública**: ela consegue chamar essa função e nada mais (não lê nem apaga dados).
+A função valida os campos, atualiza se o e-mail já existir e barra enxurradas (5 por IP a cada 10 min,
+30 por minuto no total). O IP é guardado só como hash.
 
 ## Variáveis de ambiente
-Ver `.env.example`: `GROSCOVE_LEADS_SECRET`, `LEADS_ENDPOINT`, `LAUNCH_AT` (opcional).
+Ver `.env.example`: `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`, `IP_HASH_SALT`, `LAUNCH_AT` (opcional).
 
 ## Comandos
 ```bash
@@ -23,5 +25,5 @@ npm run typecheck && npm run lint && npm test && npm run build
 - [ ] Copiar do Ultra-hero o texto de Termos e Privacidade (`src/components/LegalPage.tsx`).
 - [ ] Trocar o logo em texto pelos caminhos de `brand-paths.ts` (`src/components/LaunchLogo.tsx`).
 - [ ] Conferir textos en/es e os três tópicos do influenciador com os originais (`messages/*.json`).
-- [ ] Criar a rota `/api/launch-leads` no Ultra-hero e o mesmo segredo nos dois projetos.
+- [ ] Copiar `supabase/groscove_join_launch_list.sql` para as migrações do Ultra-hero (já está aplicado no banco).
 - [ ] Projeto Vercel `groscove` ligado a este repositório, com as variáveis.

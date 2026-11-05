@@ -3,7 +3,7 @@ vi.mock("server-only", () => ({}));
 import { leadFormSchema, readLeadForm } from "@/lib/launch-leads";
 import { formatBrPhoneInput, normalizeBrMobileE164 } from "@/lib/phone";
 import { computeCountdown, DEFAULT_LAUNCH_AT } from "@/lib/launch";
-import { mapEndpointResponse } from "@/lib/leads-client";
+import { hashIp, mapRpcResponse } from "@/lib/leads-client";
 
 const valid = { kind: "public", name: "Ana Souza", phone: "(11) 98765-4321", email: " Ana@Exemplo.com ", consent: true };
 
@@ -59,16 +59,16 @@ describe("contagem", () => {
   });
 });
 
-describe("resposta do Ultra-hero", () => {
-  it("mapeia sucesso, limite e erros de campo", () => {
-    expect(mapEndpointResponse(200, { ok: true })).toEqual({ ok: true });
-    expect(mapEndpointResponse(429, { ok: false })).toEqual({ ok: false, error: "rate_limited" });
-    expect(mapEndpointResponse(400, { ok: false, fieldErrors: { email: ["x"], other: ["y"] } })).toEqual({
-      ok: false,
-      error: "invalid",
-      fieldErrors: { email: "email" },
-    });
-    expect(mapEndpointResponse(500, null)).toEqual({ ok: false, error: "unavailable" });
-    expect(mapEndpointResponse(200, { ok: false })).toEqual({ ok: false, error: "unavailable" });
+describe("resposta do banco", () => {
+  it("mapeia ok, limite, inválido e falhas", () => {
+    expect(mapRpcResponse(200, "ok")).toEqual({ ok: true });
+    expect(mapRpcResponse(200, "rate_limited")).toEqual({ ok: false, error: "rate_limited" });
+    expect(mapRpcResponse(200, "invalid")).toEqual({ ok: false, error: "invalid" });
+    expect(mapRpcResponse(401, { message: "x" })).toEqual({ ok: false, error: "unavailable" });
+    expect(mapRpcResponse(500, null)).toEqual({ ok: false, error: "unavailable" });
+  });
+  it("não guarda o IP puro", () => {
+    expect(hashIp("1.2.3.4", "sal")).toMatch(/^[0-9a-f]{64}$/);
+    expect(hashIp("1.2.3.4", "sal")).not.toBe(hashIp("1.2.3.4", "outro"));
   });
 });
