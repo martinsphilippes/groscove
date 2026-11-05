@@ -1,12 +1,13 @@
 /**
  * Dados de quem é responsável pelo teaser (controlador, na LGPD).
- * PENDENTE: preencher antes de publicar. Valores vazios aparecem como "[pendente]".
+ * Valores vazios aparecem como "[pendente]" (exceto dpo, que é opcional).
  */
 export const LEGAL_ENTITY = {
-  company: "",
-  cnpj: "",
-  address: "",
-  email: "",
+  company: "Groscove Administração de Empresas LTDA",
+  cnpj: "35.250.953/0001-92",
+  address: "com sede em São Paulo – SP",
+  email: "contato@groscove.com",
+  /** Encarregado (DPO). Vazio: o canal de contato acima atende os pedidos sobre dados. */
   dpo: "",
 };
 

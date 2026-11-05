@@ -32,8 +32,13 @@ function Privacy() {
 
       <h2>Quem cuida dos seus dados</h2>
       <p>
-        <V k="company" />, CNPJ <V k="cnpj" />, <V k="address" />. Encarregado (DPO): <V k="dpo" />. Contato:{" "}
-        <V k="email" />.
+        <V k="company" />, CNPJ <V k="cnpj" />, <V k="address" />.{" "}
+        {LEGAL_ENTITY.dpo ? (
+          <>
+            Encarregado (DPO): <V k="dpo" />.{" "}
+          </>
+        ) : null}
+        Para qualquer assunto sobre seus dados, escreva para <V k="email" />.
       </p>
 
       <h2>Quais dados coletamos</h2>

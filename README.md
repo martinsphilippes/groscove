@@ -41,7 +41,8 @@ npm run typecheck && npm run lint && npm test && npm run build
 ```
 
 ## Pendências antes de publicar
-- [ ] Preencher `src/lib/legal-entity.ts` (empresa, CNPJ, endereço, e-mail, DPO) — usados em Termos e Privacidade.
+- [x] Dados da empresa em `src/lib/legal-entity.ts` (Termos e Privacidade). Prazo de guarda: até 01/01/2028.
+- [ ] Apagar automaticamente os cadastros `source = groscove` em 01/01/2028 (promessa da Política de Privacidade).
 - [ ] Copiar `supabase/groscove_join_launch_list.sql` para as migrações do Ultra-hero (já está aplicado no banco).
 - [x] Projeto Vercel `groscove` ligado a este repositório, com as variáveis.
 - [ ] Teste real do formulário em produção (cadastro aparece no Admin › Interessados; apagar depois).
