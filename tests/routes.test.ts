@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { isAllowedPath } from "@/lib/routes";
 
 describe("isolamento de caminhos", () => {
-  it.each(["/", "/influenciador", "/influenciador/", "/termos", "/privacidade", "/robots.txt", "/icon.svg", "/_next/static/x.js", "/opengraph-image", "/opengraph-image-abc123"])(
+  it.each(["/", "/influenciador", "/influenciador/", "/termos", "/privacidade", "/robots.txt", "/icon.svg", "/_next/static/x.js", "/opengraph-image", "/opengraph-image-abc123", "/opengraph-image.png", "/twitter-image.png"])(
     "permite %s",
     (p) => expect(isAllowedPath(p)).toBe(true),
   );

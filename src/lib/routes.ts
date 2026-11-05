@@ -12,7 +12,7 @@ export function isAllowedPath(pathname: string): boolean {
   if ((PAGE_PATHS as readonly string[]).includes(path)) return true;
   if (STATIC_FILES.has(path)) return true;
   if (path.startsWith("/_next/")) return true;
-  // Imagem de compartilhamento gerada pelo Next (pode vir com hash na URL).
-  if (/^\/opengraph-image(-[\w]+)?$/.test(path)) return true;
+  // Imagens de compartilhamento (WhatsApp, Instagram, X).
+  if (/^\/(opengraph|twitter)-image(-[\w]+)?(\.png)?$/.test(path)) return true;
   return false;
 }
