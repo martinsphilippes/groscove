@@ -8,9 +8,10 @@ import "./globals.css";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("meta");
-  const base = process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : "http://localhost:3000";
+  // Endereço oficial usado nas prévias de link (WhatsApp, Instagram etc.).
+  const base =
+    process.env.SITE_URL ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000");
   return {
     metadataBase: new URL(base),
     title: t("title"),

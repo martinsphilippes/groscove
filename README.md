@@ -6,7 +6,7 @@ Só existem `/`, `/influenciador`, `/termos` e `/privacidade`; qualquer outro ca
 
 ## Onde está no ar
 - Vercel: projeto `groscove` (time `martinsphilippes`, `prj_lTWH8rv0PsixQ5CgEaYAuWLGTFuA`), funções em São Paulo (`gru1`).
-- Endereço: https://groscove-wine.vercel.app (`groscove.vercel.app` já era de outra conta). Domínio próprio: apontar para este projeto.
+- Endereço oficial: https://groscove-ultra.vercel.app (variável `SITE_URL`). `groscove-wine.vercel.app` também abre o site (`groscove.vercel.app` já era de outra conta). Domínio próprio: apontar para este projeto e trocar `SITE_URL`.
 - Publica sozinho a cada push no branch de produção do repositório.
 
 ## Como o formulário grava (a "portinha")
