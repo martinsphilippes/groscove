@@ -62,7 +62,7 @@
 
 .teaser__headline {
   font-size: clamp(28px, 6vw, 48px);
-  line-height: 1.08;
+  line-height: 1.12;
   font-weight: 800;
   letter-spacing: -0.02em;
   max-width: 18ch;
@@ -133,6 +133,8 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  /* O brilho só pinta dentro da caixa do texto: sem esta folga, o "g" e o "p" da última linha saem cortados. */
+  padding-bottom: 0.14em;
   animation: text-shine 5s ease-in-out infinite;
   text-shadow: 0 0 24px rgba(255, 255, 255, 0.08);
 }
