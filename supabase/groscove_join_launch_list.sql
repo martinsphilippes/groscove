@@ -1,7 +1,7 @@
 -- JÁ APLICADO no Supabase do Ultra-hero (cjcvlfypjoxaynwtmuhz) em 2026-11-05.
 -- Migrações: groscove_join_launch_list + groscove_join_launch_list_only_anon.
 -- Copiar para supabase/migrations do Ultra-hero para manter o histórico do app em dia.
---
+-- Limites e risco aceito: ver README (seção "Limites e risco aceito").
 -- Única porta de entrada do groscove na tabela launch_leads. A tabela continua fechada
 -- (RLS sem políticas): a chave pública só consegue chamar esta função.
 create or replace function public.groscove_join_launch_list(
