@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "title": "Groscove Ultra — Coming soon",
+    "description": "Something new is coming. Be the first to know."
+  },
+  "locale": { "label": "Language" },
+  "teaser": {
+    "headline": "The celebrity wellness network is coming.",
+    "launch": "Launch · 01.01.2027",
+    "influencerCta": "I'm an influencer",
+    "countdown": { "label": "Countdown to launch", "days": "Days", "hours": "Hours", "minutes": "Min", "seconds": "Sec" }
+  },
+  "influencer": {
+    "headline": "A whole ecosystem connecting you to brands and companies.",
+    "topic1": "Campaigns with brands that match who you are.",
+    "topic2": "Proposals, contracts and payments in one place.",
+    "topic3": "Your reach, measured and valued.",
+    "back": "Back"
+  },
+  "form": {
+    "title": "Be the first to know",
+    "name": "Name",
+    "phone": "Mobile",
+    "email": "Email",
+    "instagram": "Instagram @",
+    "optional": "optional",
+    "consent": "I agree to receive news from Groscove Ultra.",
+    "privacyLink": "Privacy Policy",
+    "submit": "Let me know first",
+    "sending": "Sending…",
+    "success": "Done. You'll know before everyone else.",
+    "errors": {
+      "name": "Enter your name.",
+      "phone": "Enter a valid Brazilian mobile number with area code.",
+      "email": "Enter a valid email.",
+      "consent": "Check the box to continue.",
+      "instagram": "Check your Instagram @.",
+      "rate_limited": "Too many attempts. Try again in a few minutes.",
+      "unavailable": "We couldn't send it right now. Please try again shortly."
+    }
+  },
+  "footer": { "terms": "Terms of Use", "privacy": "Privacy Policy" },
+  "legal": { "back": "Back", "termsTitle": "Terms of Use", "privacyTitle": "Privacy Policy" },
+  "notFound": { "title": "Page not found", "back": "Go to home" }
+}

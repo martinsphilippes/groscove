@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "title": "Groscove Ultra — Em breve",
+    "description": "Algo novo está chegando. Seja o primeiro a saber."
+  },
+  "locale": { "label": "Idioma" },
+  "teaser": {
+    "headline": "A rede wellness das celebridades está chegando.",
+    "launch": "Lançamento · 01.01.2027",
+    "influencerCta": "Sou influenciador",
+    "countdown": { "label": "Contagem regressiva para o lançamento", "days": "Dias", "hours": "Horas", "minutes": "Min", "seconds": "Seg" }
+  },
+  "influencer": {
+    "headline": "Um ecossistema inteiro que conecta você a marcas e empresas.",
+    "topic1": "Campanhas com marcas que combinam com você.",
+    "topic2": "Propostas, contratos e pagamentos num só lugar.",
+    "topic3": "Seu alcance medido e valorizado.",
+    "back": "Voltar"
+  },
+  "form": {
+    "title": "Seja o primeiro a saber",
+    "name": "Nome",
+    "phone": "Celular",
+    "email": "E-mail",
+    "instagram": "@ do Instagram",
+    "optional": "opcional",
+    "consent": "Aceito receber novidades do Groscove Ultra.",
+    "privacyLink": "Política de Privacidade",
+    "submit": "Quero saber primeiro",
+    "sending": "Enviando…",
+    "success": "Pronto. Você vai saber antes de todo mundo.",
+    "errors": {
+      "name": "Informe seu nome.",
+      "phone": "Informe um celular válido com DDD.",
+      "email": "Informe um e-mail válido.",
+      "consent": "Marque a caixinha para continuar.",
+      "instagram": "Confira o @ do Instagram.",
+      "rate_limited": "Muitas tentativas. Tente de novo em alguns minutos.",
+      "unavailable": "Não foi possível enviar agora. Tente de novo em instantes."
+    }
+  },
+  "footer": { "terms": "Termos de Uso", "privacy": "Política de Privacidade" },
+  "legal": { "back": "Voltar", "termsTitle": "Termos de Uso", "privacyTitle": "Política de Privacidade" },
+  "notFound": { "title": "Página não encontrada", "back": "Ir para o início" }
+}
